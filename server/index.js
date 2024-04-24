@@ -15,10 +15,10 @@ const {
 } = process.env;
 
 const MONGO_URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`
-
+// const MONGO_URI = "mongodb://host.docker.internal:27017/mydata"
 // Connect DB
 mongoose
-  .connect(MONGO_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGO_URI,{ useNewUrlParser: true, useUnifiedTopology: true ,family:4})
   .then(() => console.log("mongoDB is connected"))
   .catch((err) => console.log(err));
 
