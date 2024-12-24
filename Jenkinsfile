@@ -26,16 +26,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            echo 'Cleaning up resources...'
-            sh "docker-compose -f ${DOCKER_COMPOSE_PATH} down"
-        }
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed.'
-        }
-    }
 }
